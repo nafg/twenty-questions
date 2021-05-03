@@ -22,10 +22,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Run a multi-line script
+      - name: ${{ toJSON(github.event) }}
         run: |
-          echo ${{ format('{0}', !!github.event.pull_request) }}
+          echo ${{ github.event.pull_request }}
+          echo ${{ !!github.event.pull_request }}
           echo ${{ !github.event.pull_request }}
           echo $GITHUB_EVENT_NAME
 
-# ${{ toJSON(github.event) }}
