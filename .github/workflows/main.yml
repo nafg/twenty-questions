@@ -25,4 +25,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo ${{ github.event.issue.pull_request }}
+          echo ${{ !github.event.issue.pull_request }}
+          echo ${{ github.event.issue }}
           echo $GITHUB_EVENT
