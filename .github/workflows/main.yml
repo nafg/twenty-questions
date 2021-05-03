@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Run a multi-line script
         run: |
-          echo ${{ format('{0}', github.event.issue.pull_request) }}
+          echo ${{ format('{0}', !!github.event.issue.pull_request) }}
           echo ${{ !github.event.issue.pull_request }}
-          echo ${{ format('{0}', github.event.issue) }}
-          echo $GITHUB_EVENT
+          echo ${{ toJSON(github.event) }}
+          echo $GITHUB_EVENT_NAME
